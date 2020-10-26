@@ -7,7 +7,7 @@ import (
 	"encoding/xml"
 	"errors"
 	"fmt"
-	"goplugins/core/log"
+	"goplugins/core/framework/log"
 	"io"
 	"math"
 	"mime/multipart"

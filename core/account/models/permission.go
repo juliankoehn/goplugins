@@ -12,7 +12,7 @@ type (
 	Group struct {
 		framework.Model
 		Name        string        `json:"name"`
-		Permissions []*Permission `json:"permissions"`
+		Permissions []*Permission `json:"permissions" gorm:"many2many:groups_permissions;"`
 	}
 	// Permission system provides a way to assign permissions to specific
 	// users and groups of users
@@ -23,9 +23,10 @@ type (
 	//
 	Permission struct {
 		framework.Model
-		Name        string `json:"name"`
-		ContentType string `json:"contentType"`
-		Codename    string `json:"codeName"`
+		Name        string   `json:"name"`
+		ContentType string   `json:"contentType"`
+		Codename    string   `json:"codeName"`
+		Groups      []*Group `json:"groups" gorm:"many2many:groups_permissions;"`
 	}
 )
 

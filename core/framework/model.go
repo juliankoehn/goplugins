@@ -9,7 +9,7 @@ import (
 type (
 	// Model is the baseModel underlaying all models
 	Model struct {
-		ID        uuid.UUID `json:"id"`
+		ID        uuid.UUID `json:"id" gorm:"primarykey"`
 		CreatedAt time.Time `json:"createdAt"`
 		UpdatedAt time.Time `json:"updatedAt"`
 	}

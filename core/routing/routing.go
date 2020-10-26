@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"goplugins/core/framework/color"
 	"goplugins/core/framework/log"
+	"goplugins/core/framework/validation"
 	"io"
 	"io/ioutil"
 	stdLog "log"
@@ -167,9 +168,10 @@ func New() (m *Mux) {
 		AutoTLSManager: autocert.Manager{
 			Prompt: autocert.AcceptTOS,
 		},
-		Logger:   log.New("router"),
-		colorer:  color.New(),
-		maxParam: new(int),
+		Logger:    log.New("router"),
+		colorer:   color.New(),
+		maxParam:  new(int),
+		Validator: validation.Validator{},
 	}
 	m.Server.Handler = m
 	m.TLSServer.Handler = m
@@ -521,6 +523,7 @@ func (m *Mux) StartServer(s *http.Server) (err error) {
 		if !m.HidePort {
 			m.colorer.Printf("⇨ http server started on %s\n", m.colorer.Green(m.Listener.Addr()))
 		}
+
 		return s.Serve(m.Listener)
 	}
 

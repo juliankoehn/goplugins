@@ -7,3 +7,7 @@ Luminate is build to learn the [Go plugin Package](https://golang.org/pkg/plugin
 Feel free to participate or come up with new ideas. Use it as a Boilerplate or whatever.
 
 To keep things simple: the Routing Package is a Fork/Copy of the Echo router from LabStack. The Database is using Gorm.
+
+
+
+Validation Package is [Validate](https://github.com/dealancer/validate).
